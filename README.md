@@ -5,6 +5,7 @@ A modern full-stack Task Management System designed to help users organize works
 The application provides a clean and responsive interface inspired by modern project-management tools, with secure authentication and a RESTful backend API.
 
 🚀 Features
+
 🔐 User Authentication
   - User registration and login
   - JWT-based authentication
