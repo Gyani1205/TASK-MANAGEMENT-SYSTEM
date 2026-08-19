@@ -1,124 +1,90 @@
-TaskFlow — Complete Task Management System
+Task Management System
 
-A full-stack task management application inspired by modern productivity tools such as Jira, Linear, and ClickUp.
+A modern full-stack Task Management System designed to help users organize workspaces, projects, tasks, subtasks, comments, labels, and team collaboration in one centralized platform.
 
-TaskFlow allows users to manage workspaces, projects, tasks, subtasks, comments, labels, team members, and personal preferences through a modern Kanban-based interface.
+The application provides a clean and responsive interface inspired by modern project-management tools, with secure authentication and a RESTful backend API.
 
 🚀 Features
-🔐 Authentication
-User signup and login
-Guest login
-Google OAuth integration
-JWT authentication
-Refresh token support
-Secure HTTP-only cookies
-Logout functionality
-Protected routes
+🔐 User Authentication
+  - User registration and login
+  - JWT-based authentication
+  - Refresh token support
+  - Logout functionality
+  - Guest access
+  - Google OAuth integration support
 🏢 Workspace Management
-Create and manage workspaces
-Switch between workspaces
-Add and remove workspace members
-Role-based access control
-Workspace owner, admin, member, and guest roles
+   - Create workspaces
+   - Switch between workspaces
+   - Update workspace details
+   - Add and remove workspace members
+   - Delete workspaces
 📁 Project Management
-Create projects
-Update project details
-Delete projects
-Project-specific task management
-Project key and description support
+   - Create projects
+   - View projects
+   - Update project information
+   - Delete projects
 ✅ Task Management
-Create, edit, and delete tasks
-Task statuses:
-To Do
-Doing
-Completed
-On Hold
-Priority levels
-Due dates
-Task descriptions
-Assignees and reporters
-Labels
-Search and filtering
-Sorting and pagination
-📋 Kanban Board
-Drag-and-drop task management
-Multiple task columns
-Optimistic UI updates
-Automatic task reordering
-Board and list views
-📝 Task Details
-Full task detail page
-Inline task editing
-Status and priority updates
-Due date management
-Assignee management
-Label management
-Activity timeline
-☑️ Subtasks
-Create subtasks
-Mark subtasks as completed
-Delete subtasks
-Automatic progress calculation
-💬 Comments
-Add comments to tasks
-Reply to comments
-Nested comment support
-Author-based delete permissions
-🎨 Personalization
-Light mode
-Dark mode
-System theme support
-Multiple accent colors
-Theme preferences stored in the backend
-Task field visibility settings
-👤 User Profile
-Update name and username
-Avatar URL support with preview
-View email and role information
-Delete account
+   - Create tasks
+   - View task details
+   - Update tasks
+   - Delete tasks
+   - Reorder tasks
+   - Organize and manage task workflows
+📌 Additional Features
+   - Subtasks
+   - Comments
+   - Labels
+   - Activity tracking
+   - User profile management
+   - Theme settings
+   - Field visibility settings
+   - Dark mode support
+   - Responsive user interface
 🛠️ Tech Stack
-Frontend
-Next.js 15
-TypeScript
-Tailwind CSS
-React Hook Form
-Zod
-TanStack Query
-Zustand
-Axios
-Radix UI / shadcn-style components
-dnd-kit
-Backend
-NestJS
-TypeScript
-Prisma ORM
-PostgreSQL
-Passport.js
-JWT Authentication
-Google OAuth
-Swagger
-class-validator
-Testing
-Jest
-Supertest
-Vitest
-React Testing Library
-DevOps & Deployment
-Docker
-Docker Compose
-GitHub Actions
-Render
-Vercel
-📁 Project Structure
+   - Frontend
+   - Next.js 15
+   - React 18
+   - TypeScript
+   - Tailwind CSS
+   - Zustand
+   - TanStack React Query
+   - React Hook Form
+   - Zod
+   - Axios
+   - Radix UI
+   - Lucide React
+   - Sonner
+   - dnd-kit
+   - Backend
+   - NestJS
+   - TypeScript
+   - Prisma ORM
+   - Passport.js
+   - JWT Authentication
+   - Cookie Parser
+   - Swagger API Documentation
+   - Throttler / Rate Limiting
+   - Database
+   - PostgreSQL
+   - Prisma ORM
+ 📂 Project Structure
 TASK-MANAGEMENT-SYSTEM/
 │
+├── frontend/
+│   ├── app/
+│   ├── components/
+│   ├── hooks/
+│   ├── lib/
+│   ├── providers/
+│   ├── services/
+│   ├── store/
+│   ├── types/
+│   ├── package.json
+│   └── next.config.mjs
+│
 ├── backend/
-│   ├── prisma/
-│   │   └── schema.prisma
-│   │
 │   ├── src/
 │   │   ├── common/
-│   │   ├── config/
 │   │   ├── modules/
 │   │   │   ├── auth/
 │   │   │   ├── users/
@@ -131,297 +97,176 @@ TASK-MANAGEMENT-SYSTEM/
 │   │   │   ├── activities/
 │   │   │   ├── theme/
 │   │   │   └── settings/
-│   │   │
 │   │   ├── app.module.ts
 │   │   └── main.ts
 │   │
+│   ├── prisma/
 │   └── package.json
 │
-├── frontend/
-│   ├── app/
-│   │   ├── (auth)/
-│   │   ├── (dashboard)/
-│   │   ├── layout.tsx
-│   │   └── globals.css
-│   │
-│   ├── components/
-│   ├── hooks/
-│   ├── lib/
-│   ├── providers/
-│   ├── services/
-│   ├── store/
-│   ├── types/
-│   └── package.json
-│
-├── .github/
-│   └── workflows/
-│
-├── docker-compose.yml
-├── render.yaml
 └── README.md
-🏗️ Architecture
+⚙️ Installation and Setup
+1. Clone the Repository
+   git clone https://github.com/Gyani1205/TASK-MANAGEMENT-SYSTEM.git
+   
+   cd TASK-MANAGEMENT-SYSTEM
 
-TaskFlow follows a full-stack client-server architecture.
+   🖥️ Frontend Setup
 
-Next.js Frontend
-       │
-       │ REST API
-       ▼
-NestJS Backend
-       │
-       │ Prisma ORM
-       ▼
-PostgreSQL Database
+Navigate to the frontend directory: 
 
-The frontend communicates with the NestJS backend through REST APIs. Prisma handles database access and PostgreSQL stores application data.
+cd frontend
 
-🔌 API
+Install dependencies:
 
-The backend uses the following API prefix:
+npm install
 
-/api/v1
-Authentication
-POST   /api/v1/auth/signup
-POST   /api/v1/auth/login
-POST   /api/v1/auth/guest
-POST   /api/v1/auth/refresh
-POST   /api/v1/auth/logout
-GET    /api/v1/auth/google
-GET    /api/v1/auth/google/callback
-Users
-GET     /api/v1/users/me
-PATCH   /api/v1/users/me
-DELETE  /api/v1/users/me
-GET     /api/v1/users
-GET     /api/v1/users/:id
-Workspaces
-POST    /api/v1/workspaces
-GET     /api/v1/workspaces
-GET     /api/v1/workspaces/:id
-PATCH   /api/v1/workspaces/:id
-DELETE  /api/v1/workspaces/:id
+Create a .env.local file:
 
+NEXT_PUBLIC_API_URL=http://localhost:4000/api/v1
 
-POST    /api/v1/workspaces/:id/members
-DELETE  /api/v1/workspaces/:id/members/:userId
-Projects
-POST    /api/v1/projects
-GET     /api/v1/projects
-GET     /api/v1/projects/:id
-PATCH   /api/v1/projects/:id
-DELETE  /api/v1/projects/:id
-Tasks
-POST    /api/v1/tasks
-GET     /api/v1/tasks
-GET     /api/v1/tasks/:id
-PATCH   /api/v1/tasks/:id
-PATCH   /api/v1/tasks/:id/reorder
-DELETE  /api/v1/tasks/:id
-Additional Modules
+Start the development server:
 
-The API also includes endpoints for:
+npm run dev
 
-Subtasks
-Comments
-Labels
-Activities
-Theme preferences
-Field visibility settings
-📖 Swagger Documentation
+The frontend will run at:
 
-Swagger API documentation is available when the backend is running:
+http://localhost:3000
 
-http://localhost:4000/api/docs
-⚙️ Local Installation
-Prerequisites
+⚙️ Backend Setup
 
-Make sure you have installed:
+Open a new terminal and navigate to the backend directory:
 
-Node.js 18+
-npm
-PostgreSQL or Docker
-Option 1: Run with Docker
-
-Clone the repository:
-
-git clone https://github.com/Gyani1205/TASK-MANAGEMENT-SYSTEM.git
-
-Navigate to the project:
-
-cd TASK-MANAGEMENT-SYSTEM
-
-Run the application:
-
-docker compose up --build
-
-Services:
-
-Frontend: http://localhost:3000
-Backend:  http://localhost:4000
-Swagger:  http://localhost:4000/api/docs
-Option 2: Run Locally
-Backend
 cd backend
 
 Install dependencies:
 
 npm install
 
-Create the environment file:
+Configure the required environment variables in your backend .env file.
 
-cp .env.example .env
+Example:
 
-Configure the required environment variables, including:
-
-DATABASE_URL=
-JWT_SECRET=
-JWT_REFRESH_SECRET=
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-GOOGLE_CALLBACK_URL=
+PORT=4000
 FRONTEND_URL=http://localhost:3000
 
-Generate Prisma Client:
+DATABASE_URL=your_database_connection_string
 
-npx prisma generate
+JWT_SECRET=your_jwt_secret
+JWT_REFRESH_SECRET=your_refresh_secret
 
-Run database migrations:
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GOOGLE_CALLBACK_URL=http://localhost:4000/api/v1/auth/google/callback
+
+Run Prisma migrations if required:
 
 npx prisma migrate dev
+
+Generate the Prisma client:
+
+npx prisma generate
 
 Start the backend:
 
 npm run start:dev
 
-Backend:
+The backend API will run at:
 
 http://localhost:4000
-Frontend
 
-Open another terminal:
+📚 API Documentation
 
-cd frontend
+Swagger API documentation is available when the backend is running:
 
-Install dependencies:
+http://localhost:4000/api/docs
 
-npm install
+The backend uses the following API prefix:
 
-Create the environment file:
+/api/v1
 
-cp .env.local.example .env.local
+🔗 Main API Modules
+| Module         | Endpoint             |
+| -------------- | -------------------- |
+| Authentication | `/api/v1/auth`       |
+| Users          | `/api/v1/users`      |
+| Workspaces     | `/api/v1/workspaces` |
+| Projects       | `/api/v1/projects`   |
+| Tasks          | `/api/v1/tasks`      |
+| Subtasks       | `/api/v1/subtasks`   |
+| Comments       | `/api/v1/comments`   |
+| Labels         | `/api/v1/labels`     |
+| Activities     | `/api/v1/activities` |
+| Theme          | `/api/v1/theme`      |
+| Settings       | `/api/v1/settings`   |
 
-Add your backend API URL:
+🧪 Build Verification
 
-NEXT_PUBLIC_API_URL=http://localhost:4000/api/v1
+The project frontend and backend were successfully built locally.
 
-Start the frontend:
-
-npm run dev
-
-Open:
-
-http://localhost:3000
-🧪 Testing
-Backend Unit Tests
-cd backend
-npm test
-Backend E2E Tests
-
-A PostgreSQL database is required.
-
-cd backend
-npx prisma migrate deploy
-npm run test:e2e
-Frontend Tests
-cd frontend
-npm test
-🏗️ Production Build
 Backend
-cd backend
-npm run build
-Frontend
-cd frontend
 npm run build
 
-The backend and frontend production builds have been successfully compiled locally.
-
-🔄 CI/CD
-
-GitHub Actions is configured to automatically run checks for:
-
-Backend
-Type checking
-Unit tests
-E2E tests
-Production build
 Frontend
-Type checking
-Unit and component tests
-Production build
-🚀 Deployment
-Backend
+npm run build
 
-The backend can be deployed using Render.
+The frontend build includes the following main pages:
+- /
+- /login
+- /signup
+- /tasks
+- /tasks/[taskId]
+- /projects
+- /projects/[projectId]
+- /profile
+- /settings
 
-The repository includes:
+🔒 Security Features
 
-render.yaml
+The backend includes several security-oriented features:
 
-Configure the required environment variables in the deployment environment:
+- JWT-based authentication
+- Refresh token support
+- Password-based authentication
+- Input validation using NestJS ValidationPipe
+- Whitelisting of request DTO fields
+- Rate limiting using NestJS Throttler
+-  CORS configuration
+-  Protected API routes
+-  HTTP exception handling
 
-DATABASE_URL
-JWT_SECRET
-JWT_REFRESH_SECRET
+🎨 User Interface
+
+The frontend provides:
+
+- Modern dashboard layout
+- Workspace switcher
+- Project and task management screens
+- Responsive design
+- Dark mode
+- Custom accent colors
+- Toast notifications
+- Drag-and-drop functionality
+- Loading states and skeleton components
+
+⚠️ Environment Configuration
+
+Google OAuth requires valid credentials.
+
+If you are running automated tests or CI workflows, make sure the required environment variables are configured, especially:
+
 GOOGLE_CLIENT_ID
 GOOGLE_CLIENT_SECRET
 GOOGLE_CALLBACK_URL
-FRONTEND_URL
-Frontend
+These values should be configured securely using environment variables or GitHub Actions Secrets rather than committing real credentials to the repository.
 
-The frontend can be deployed on Vercel.
-
-Set the root directory to:
-
-frontend
-
-Configure:
-
-NEXT_PUBLIC_API_URL
-
-Example:
-
-NEXT_PUBLIC_API_URL=https://your-backend-url/api/v1
-🔒 Security Features
-JWT authentication
-Refresh tokens
-HTTP-only cookies
-Password hashing
-Role-based access control
-Protected API routes
-Global validation
-Input validation using DTOs
-CORS configuration
-Global exception handling
-🔮 Future Improvements
-
-Possible future enhancements include:
-
-Avatar file uploads
-Email change workflow
-Workspace invitation emails
-Real-time notifications
-WebSocket-based live comments
-Real-time task updates
-Advanced analytics and reporting
-Mobile application
-👩‍💻 Author
+🧑‍💻 Author
 
 Sadasivuni Gyaneswari
 
 GitHub: Gyani1205
 
-Repository: TASK-MANAGEMENT-SYSTEM
+Project Repository: TASK-MANAGEMENT-SYSTEM
 
 📄 License
 
-This project was developed for educational, learning, and portfolio purposes.
+This project was developed for educational and portfolio purposes.
